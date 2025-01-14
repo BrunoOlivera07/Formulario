@@ -1,0 +1,134 @@
+<!-- modify this form HTML and place wherever you want your form -->
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Formulário de Staff - Dynasty Rolepay</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+</head>
+
+<body class="dark-mode">
+<div class="form-container">
+  <header class="header">
+    <img src="assets/logo.png" alt="Logo Ultra City GTA" class="logo" />
+    <h1>Formulário de Staff</h1>
+    <p>Preencha os dados para ingressar na equipe de moderação</p>
+  </header>
+<form id="staff-form" action="https://formspree.io/f/xwppzeon" method="POST">
+  <!-- Dados Pessoais -->
+  <h2>Dados Pessoais</h2>
+
+  <label for="nome">Nome completo</label>
+  <input type="text" id="nome" name="name" required>
+
+  <label for="cpf">CPF</label>
+  <input type="text" id="cpf" name="cpf" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" placeholder="000.000.000-00" required>
+
+  <label for="email">E-mail</label>
+  <input type="email" id="email" name="email" required>
+
+  <label for="telefone">Telefone</label>
+  <input type="tel" id="telefone" name="phone" pattern="\(\d{2}\)\d{4,5}-\d{4}" placeholder="(00) 90000-0000" required>
+
+  <!-- Discord -->
+  <label for="discord">Usuário no Discord</label>
+  <input type="text" id="discord" name="discord" placeholder="Ex: Nome#0000" required>
+
+  <!-- <label for="fivem">CitizenID FiveM [Encontre no F9 In-Game]</label>
+  <input type="text" id="fivem" name="fivem" placeholder="Ex: CID99999" required> -->
+
+  <!-- Disponibilidade -->
+  <h2>Disponibilidade</h2>
+
+<label>Selecione os dias disponíveis:</label>
+<div class="dias-disponiveis" id="dias-disponiveis">
+  <label><input type="checkbox" name="dias[]" value="segunda"> Segunda-feira</label>
+  <label><input type="checkbox" name="dias[]" value="terca"> Terça-feira</label>
+  <label><input type="checkbox" name="dias[]" value="quarta"> Quarta-feira</label>
+  <label><input type="checkbox" name="dias[]" value="quinta"> Quinta-feira</label>
+  <label><input type="checkbox" name="dias[]" value="sexta"> Sexta-feira</label>
+  <label><input type="checkbox" name="dias[]" value="sabado"> Sábado</label>
+  <label><input type="checkbox" name="dias[]" value="domingo"> Domingo</label>
+</div>
+
+<label>Horários disponíveis:</label>
+<div class="horarios-disponiveis" id="horarios-disponiveis">
+  <label><input type="checkbox" name="horarios[]" value="manha"> Manhã</label>
+  <label><input type="checkbox" name="horarios[]" value="tarde"> Tarde</label>
+  <label><input type="checkbox" name="horarios[]" value="noite"> Noite</label>
+</div>
+
+  
+
+  <h2>Termos e Responsabilidades</h2>
+  <p>Aceite os termos abaixo para ingressar na equipe de moderação:</p>
+  
+  <ul>
+    <li>Manter sigilo absoluto sobre informações internas da cidade.</li>
+    <li>Ser responsável por todas as ações realizadas durante o uso de permissões administrativas.</li>
+    <li>Estar ciente de que ficar offline por 3 dias consecutivos sem aviso prévio pode resultar na remoção do cargo.</li>
+    <li>Garantir que todas as informações fornecidas são verdadeiras, sob pena de medidas legais.</li>
+    <li>Você está ciente que virar STAFF não é apenas para ter TAG e benefícios dentro da cidade?</li>
+    <li>Voce está ciente que sendo parte da STAFF vc irá ter a responsabilidade de atender os cidadões e ajudar na divulgação do SV em redes sociais?</li>
+  </ul>
+  
+  <div class="terms-checkbox">
+    <input type="checkbox" id="aceito-termos" name="_optin" required />
+    <label for="aceito-termos">Eu li e aceito os termos acima.</label>
+  </div>
+  
+  <button type="submit">Enviar</button>
+</form>
+
+
+  <button id="toggle-dark-light" class="toggle-btn">
+    <i class="fas fa-moon"></i>
+  </button>
+</div>
+
+<script>
+const toggleBtn = document.getElementById("toggle-dark-light");
+const body = document.body;
+
+const icon = toggleBtn.querySelector("i");
+if (body.classList.contains("dark-mode")) {
+  icon.classList.add("fa-sun");
+  icon.classList.remove("fa-moon");
+} else {
+  icon.classList.add("fa-moon");
+  icon.classList.remove("fa-sun");
+}
+
+toggleBtn.addEventListener("click", () => {
+  body.classList.toggle("dark-mode");
+  const isDark = body.classList.contains("dark-mode");
+  if (isDark) {
+    icon.classList.add("fa-sun");
+    icon.classList.remove("fa-moon");
+  } else {
+    icon.classList.add("fa-moon");
+    icon.classList.remove("fa-sun");
+  }
+});
+
+document.getElementById("staff-form").addEventListener("submit", function (e) {
+  const diasSelecionados = document.querySelectorAll("#dias-disponiveis input[type='checkbox']:checked");
+  const horariosSelecionados = document.querySelectorAll("#horarios-disponiveis input[type='checkbox']:checked");
+
+  if (diasSelecionados.length === 0) {
+    alert("Por favor, selecione pelo menos um dia disponível.");
+    e.preventDefault();
+    return;
+  }
+
+  if (horariosSelecionados.length === 0) {
+    alert("Por favor, selecione pelo menos um horário disponível.");
+    e.preventDefault();
+    return;
+  }
+});
+
+
+</script>
+</body>

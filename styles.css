@@ -1,0 +1,259 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.dark-mode {
+  background-color: #121212;
+  color: #ffffff;
+}
+
+.form-container {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 80vw;
+  text-align: center;
+  transition: background-color 0.3s;
+}
+
+.dark-mode .form-container {
+  background-color: #1e1e1e;
+}
+
+/* Header */
+.header {
+  margin-bottom: 20px;
+  margin-right: 20px;
+}
+
+.logo {
+  max-width: 120px;
+  margin-bottom: 10px;
+}
+
+h1,
+p {
+  margin-bottom: 10px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 15px;
+}
+
+h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+
+  margin-bottom: 10px;
+}
+
+p {
+  font-size: 1rem;
+  color: #ff6f00;
+  margin-bottom: 20px;
+}
+
+ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  text-align: start;
+  list-style-type: disc;
+  margin-left: 20px;
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+ul li {
+  margin-bottom: 8px;
+}
+
+/* Estilo para o checkbox e a frase */
+.terms-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1rem;
+  color: #555;
+}
+
+input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  accent-color: #4caf50;
+}
+
+label {
+  font-size: 1rem;
+  color: #626262;
+  cursor: pointer;
+}
+
+.terms-checkbox input[type="checkbox"]:checked + label {
+  color: #4caf50; /* Cor para o texto quando o checkbox for selecionado */
+}
+
+.terms-checkbox input[type="checkbox"]:hover {
+  border-color: #4caf50; /* Cor da borda quando o mouse passar sobre o checkbox */
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+textarea {
+  height: 100px;
+  resize: none;
+}
+
+button {
+  background-color: #4caf50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+ul {
+  list-style-type: disc;
+  margin-left: 20px;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+input[type="checkbox"] {
+  margin-right: 10px;
+}
+
+div {
+  display: flex;
+  align-items: center;
+}
+
+.toggle-btn {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background-color: #4a4a4a;
+  border: none;
+  padding: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  color: white;
+  font-size: 1.5rem;
+}
+
+.toggle-btn:hover {
+  background-color: #becbbf;
+}
+
+/* Responsividade para dispositivos móveis */
+@media (max-width: 600px) {
+  .form-container {
+    padding: 15px;
+    max-width: 90%;
+  }
+
+  h2 {
+    font-size: 1.2rem;
+  }
+
+  p {
+    font-size: 0.7rem!important;
+  }
+
+  ul {
+    font-size: 0.9rem;
+  }
+
+  .terms-checkbox {
+    font-size: 0.9rem;
+  }
+
+  h1,
+  p {
+    font-size: 1.2rem;
+  }
+}
+
+
+/* Estilo para o seletor de dias múltiplos */
+select[multiple] {
+  width: 100%;
+  height: auto;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+select[multiple] option {
+  padding: 5px;
+  cursor: pointer;
+}
+
+select[multiple]:focus {
+  border-color: #4caf50;
+  outline: none;
+}
+
+/* Estilo para os checkboxes de horários */
+/* Estilo para os checkboxes de dias */
+.dias-disponiveis,
+.horarios-disponiveis {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.dias-disponiveis label,
+.horarios-disponiveis label {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 1rem;
+  color: #626262;
+  cursor: pointer;
+}
+
+.dias-disponiveis input[type="checkbox"],
+.horarios-disponiveis input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  accent-color: #4caf50;
+}
